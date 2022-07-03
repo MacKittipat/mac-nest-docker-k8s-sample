@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mac-nest-web-deployment
+  labels:
+    app: mac-nest-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mac-nest-web
+  template:
+    metadata:
+      labels:
+        app: mac-nest-web
+    spec:
+      containers:
+        - name: mac-nest-web
+          image: devpro9/mac-nest-web:latest
+          ports:
+            - containerPort: 3000
